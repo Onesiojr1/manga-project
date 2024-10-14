@@ -11,7 +11,7 @@ const SignInButton = () => {
     return (
       <div className="ml-auto h-full flex items-center justify-center">
       <span className="text-2xl mr-6">{session.user.name}</span>
-      <LinkButton href={"/api/auth/signout"} variant={'tertiary'}>Sign out</LinkButton>
+      <LinkButton href={"/api/auth/signout"} variant={'tertiary'}>Sair</LinkButton>
     </div>
     );
 
@@ -20,7 +20,7 @@ const SignInButton = () => {
       <Link className="text-2xl mr-6" href={"/api/auth/signin"}>
         Login
       </Link>
-      <LinkButton href={"/signup"}>Sign up</LinkButton>
+      <LinkButton href={"/signup"}>Cadastrar</LinkButton>
     </div>
   );
 };

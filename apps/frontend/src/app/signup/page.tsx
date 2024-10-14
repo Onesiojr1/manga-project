@@ -4,6 +4,7 @@ import { Backend_URL } from "@/lib/Constants";
 import Link from "next/link";
 import React, { useRef } from "react";
 import ClickButton from "../../components/ClickButton";
+import Container from "../../components/Container";
 
 type FormInputs = {
   name: string;
@@ -38,39 +39,38 @@ const SignupPage = () => {
     password: "",
   });
   return (
-    <div className="mt-20 border rounded overflow-hidden shadow">
-      <div className="p-2 bg-gradient-to-b from-white to-slate-200 text-slate-600">
-        Sign up
-      </div>
-      <div className="p-2 flex flex-col gap-6">
-        <InputBox
-          autoComplete="off"
-          name="name"
-          labelText="Name"
-          required
-          onChange={(e) => (data.current.name = e.target.value)}
-        />
-        <InputBox
-          name="email"
-          labelText="Email"
-          required
-          onChange={(e) => (data.current.email = e.target.value)}
-        />
-        <InputBox
-          name="password"
-          labelText="password"
-          type="password"
-          required
-          onChange={(e) => (data.current.password = e.target.value)}
-        />
-        <div className="flex justify-center items-center gap-2">
-          <ClickButton onClick={register}>Submit</ClickButton>
-          <Link className="" href={"/"}>
-            Cancel
-          </Link>
+    <Container>
+      <div className="mt-20 lg:mt-40 overflow-hidden shadow">
+        <div className="p-2 flex flex-col gap-6">
+          <InputBox
+            autoComplete="off"
+            name="name"
+            labelText="Name"
+            required
+            onChange={(e) => (data.current.name = e.target.value)}
+          />
+          <InputBox
+            name="email"
+            labelText="Email"
+            required
+            onChange={(e) => (data.current.email = e.target.value)}
+          />
+          <InputBox
+            name="Password"
+            labelText="Password"
+            type="password"
+            required
+            onChange={(e) => (data.current.password = e.target.value)}
+          />
+          <div className="flex justify-center items-center gap-2">
+            <ClickButton onClick={register}>Submit</ClickButton>
+            <Link className="text-2xl" href={"/"}>
+              Cancel
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

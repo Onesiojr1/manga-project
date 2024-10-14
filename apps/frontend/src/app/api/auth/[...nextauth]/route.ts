@@ -29,7 +29,7 @@ export const authOptions: NextAuthOptions = {
         username: {
           label: "Username",
           type: "text",
-          placeholder: "jsmith",
+          placeholder: "email",
         },
         password: { label: "Password", type: "password" },
       },

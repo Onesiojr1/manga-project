@@ -7,7 +7,7 @@ interface HeroElementProps {
 }
 
 export function HeroTitle(props: HeroElementProps) {
-  return <h1 className="text-7xl leading-none my-12 uppercase lg:text-9xl lg:my-6">{props.children}</h1>
+  return <h1 className="text-5xl leading-none my-12 uppercase lg:text-9xl lg:my-6">{props.children}</h1>
 }
 
 export function HeroSubtitle(props: HeroElementProps) {
