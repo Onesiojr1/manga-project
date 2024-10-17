@@ -4,6 +4,7 @@ import Container from "../../../components/Container";
 import { Backend_URL } from "../../../lib/Constants";
 import { useSession } from "next-auth/react";
 import MangaForm from "../../../components/MangaForm";
+import { useRouter } from "next/navigation";
 
 export type FormInputs = {
   name: string
@@ -13,6 +14,7 @@ export type FormInputs = {
 };
 
 export default function AddMangaPage() {
+  const router = useRouter()
   const { data: session } = useSession();
 
   const register = async () => {
@@ -37,6 +39,7 @@ export default function AddMangaPage() {
     const response = await res.json();
     alert("manga added!");
     console.log({ response });
+    router.push('/')
   };
 
   const data = useRef<FormInputs>({

@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link";
 import ClickButton from "./ClickButton";
 import InputBox from "./InputBox";

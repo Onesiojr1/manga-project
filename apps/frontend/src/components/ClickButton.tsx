@@ -1,3 +1,4 @@
+'use client'
 import { cva, VariantProps } from "class-variance-authority"
 
 interface ButtonProps extends VariantProps<typeof buttonClasses>{

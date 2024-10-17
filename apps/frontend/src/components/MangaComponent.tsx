@@ -1,3 +1,4 @@
+'use client'
 import { Manga } from "../lib/types";
 import ClickButton from "./ClickButton";
 import Image from "next/image";
