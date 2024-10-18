@@ -39,6 +39,32 @@ export class MangaService {
     })
   }
 
+  async addMangaChapter(id: string) {
+    return await this.prisma.manga.update({
+      where: {
+        id
+      },
+      data: {
+        chapter: {
+          increment: 1
+        }
+      }
+    })
+  }
+
+  async subtractMangaChapter(id: string) {
+    return await this.prisma.manga.update({
+      where: {
+        id
+      },
+      data: {
+        chapter: {
+          decrement: 1
+        }
+      }
+    })
+  }
+
   async deleteManga(id: string) {
     return await this.prisma.manga.delete({
       where: {

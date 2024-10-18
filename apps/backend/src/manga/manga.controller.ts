@@ -29,6 +29,16 @@ export class MangaController {
     return await this.mangaService.updateManga(id, dto);
   }
 
+  @Put('chapter/add/:id')
+  async addMangaChapter(@Param('id') id: string) {
+    return await this.mangaService.addMangaChapter(id);
+  }
+
+  @Put('chapter/subtract/:id')
+  async subtractMangaChapter(@Param('id') id: string) {
+    return await this.mangaService.subtractMangaChapter(id);
+  }
+
   @Delete(':id')
   async deleteManga(@Param('id') id: string) {  
     return await this.mangaService.deleteManga(id);
