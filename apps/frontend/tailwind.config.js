@@ -12,6 +12,7 @@ module.exports = {
       },
       colors: {
         background: "#000212",
+        "background-dark": "#090d1f",
         "transparent-white": "rgba(255, 255, 255, 0.08)",
       },
       backgroundImage: {
