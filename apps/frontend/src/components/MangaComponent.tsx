@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Backend_URL } from "../lib/Constants";
 import { Manga } from "../lib/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +12,7 @@ interface MangaComponentProps {
 export default function MangaComponent(props: MangaComponentProps) {
   const [chapter, setChapter] = useState(props.manga.chapter);
   const addChapter = () => {
-    fetch(Backend_URL + `/manga/chapter/add/${props.manga.id}`, {
+    fetch(process.env.Backend_URL + `/manga/chapter/add/${props.manga.id}`, {
       method: "PUT",
     });
     setChapter(chapter + 1);
@@ -21,7 +20,7 @@ export default function MangaComponent(props: MangaComponentProps) {
   
   const substractChapter =  () => {
     if (chapter <= 0) return;
-    fetch(Backend_URL + `/manga/chapter/subtract/${props.manga.id}`, {
+    fetch(process.env.Backend_URL + `/manga/chapter/subtract/${props.manga.id}`, {
       method: "PUT",
     });
     setChapter(chapter - 1);

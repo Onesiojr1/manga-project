@@ -3,7 +3,6 @@ import Container from "../../../components/Container";
 import { Manga } from "../../../lib/types";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Backend_URL } from "../../../lib/Constants";
 import ClickButton from "../../../components/ClickButton";
 import LinkButton from "../../../components/LinkButton";
 import { useRouter } from "next/navigation";
@@ -21,7 +20,7 @@ export default function MangaPage(props: Props) {
   const [chapter, setChapter] = useState(0);
 
   const addChapter = () => {
-    fetch(Backend_URL + `/manga/chapter/add/${props.params.id}`, {
+    fetch(process.env.Backend_URL + `/manga/chapter/add/${props.params.id}`, {
       method: "PUT",
     });
     setChapter(chapter + 1);
@@ -29,21 +28,21 @@ export default function MangaPage(props: Props) {
 
   const substractChapter = () => {
     if (chapter <= 0) return;
-    fetch(Backend_URL + `/manga/chapter/subtract/${props.params.id}`, {
+    fetch(process.env.Backend_URL + `/manga/chapter/subtract/${props.params.id}`, {
       method: "PUT",
     });
     setChapter(chapter - 1);
   };
 
   const deleteManga = () => {
-    fetch(Backend_URL + `/manga/${props.params.id}`, {
+    fetch(process.env.Backend_URL + `/manga/${props.params.id}`, {
       method: "DELETE",
     });
     router.push("/");
   };
 
   useEffect(() => {
-    fetch(Backend_URL + `/manga/${props.params.id}`)
+    fetch(process.env.Backend_URL + `/manga/${props.params.id}`)
       .then((response) => response.json())
       .then((data) => {
         setManga(data);

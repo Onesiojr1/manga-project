@@ -1,6 +1,5 @@
 "use client";
 import InputBox from "@/components/InputBox";
-import { Backend_URL } from "@/lib/Constants";
 import Link from "next/link";
 import React, { useRef } from "react";
 import ClickButton from "../../components/ClickButton";
@@ -14,7 +13,7 @@ type FormInputs = {
 
 const SignupPage = () => {
   const register = async () => {
-    const res = await fetch(Backend_URL + "/auth/register", {
+    const res = await fetch(process.env.Backend_URL + "/auth/register", {
       method: "POST",
       body: JSON.stringify({
         name: data.current.name,

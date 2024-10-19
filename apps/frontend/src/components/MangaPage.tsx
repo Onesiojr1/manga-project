@@ -1,5 +1,4 @@
 import { getServerSession } from "next-auth";
-import { Backend_URL } from "../lib/Constants";
 import { Manga } from "../lib/types";
 import Container from "./Container";
 import LinkButton from "./LinkButton";
@@ -9,7 +8,7 @@ import { authOptions } from "../app/api/auth/[...nextauth]/route";
 export default async function MangaPage() {
   const session = await getServerSession(authOptions);
   const response = await fetch(
-    Backend_URL + `/manga/user/${session?.user.id}`,
+    process.env.Backend_URL + `/manga/user/${session?.user.id}`,
     {
       method: "GET",
       headers: {
