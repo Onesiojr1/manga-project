@@ -15,7 +15,7 @@ type Props = {
 };
 
 export default function EditMangaPage(props: Props) {
-  const router = useRouter()
+  const router = useRouter();
   const { data: session } = useSession();
   const [manga, setManga] = useState<Manga>();
 
@@ -25,7 +25,7 @@ export default function EditMangaPage(props: Props) {
       .then((data) => {
         setManga(data);
       });
-  }, [manga]);
+  }, []);
 
   const editManga = async () => {
     const res = await fetch(Backend_URL + `/manga/${props.params.id}`, {
@@ -52,7 +52,7 @@ export default function EditMangaPage(props: Props) {
     const response = await res.json();
     alert("manga Edited!");
     console.log({ response });
-    router.push('/')
+    router.push("/");
   };
 
   const data = useRef<FormInputs>({
