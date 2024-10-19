@@ -2,8 +2,9 @@
 import { useState } from "react";
 import { Backend_URL } from "../lib/Constants";
 import { Manga } from "../lib/types";
-import ClickButton from "./ClickButton";
 import Image from "next/image";
+import Link from "next/link";
+import UpdateChapter from "./UpdateChapter";
 
 interface MangaComponentProps {
   manga: Manga;
@@ -19,6 +20,7 @@ export default function MangaComponent(props: MangaComponentProps) {
   };
   
   const substractChapter =  () => {
+    if (chapter <= 0) return;
     fetch(Backend_URL + `/manga/chapter/subtract/${props.manga.id}`, {
       method: "PUT",
     });
@@ -27,28 +29,18 @@ export default function MangaComponent(props: MangaComponentProps) {
   
   return (
     <div className="flex flex-row justify-between items-center p-6 border border-slate-400 rounded-xl bg-gray-950">
-      <div className="flex flex-col items-start sm:flex-row sm:items-center gap-6">
-        <Image
-          width={100}
-          height={100}
-          alt={props.manga.name}
-          src={props.manga.image}
-        />
-        <span className="text-4xl">{props.manga.name}</span>
-      </div>
-      <div className="flex gap-4 items-center font-3xl">
-        <ClickButton
-          variant={"tertiary"}
-          size={"small"}
-          onClick={substractChapter}
-        >
-          <span className="text-3xl">-</span>
-        </ClickButton>
-        <span className="text-3xl">{chapter}</span>
-        <ClickButton size={"small"} onClick={addChapter}>
-          <span className="text-3xl">+</span>
-        </ClickButton>
-      </div>
+      <Link href={`/manga/${props.manga.id}`}>
+        <div className="flex flex-col items-start sm:flex-row sm:items-center gap-6">
+          <Image
+            width={100}
+            height={100}
+            alt={props.manga.name}
+            src={props.manga.image}
+          />
+          <span className="text-4xl">{props.manga.name}</span>
+        </div>
+      </Link>
+      <UpdateChapter addChapter={addChapter} substractChapter={substractChapter} chapter={chapter} />
     </div>
   );
 }
