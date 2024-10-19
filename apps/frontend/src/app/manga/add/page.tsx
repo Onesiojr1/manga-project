@@ -1,7 +1,6 @@
 'use client';
 import { useRef } from "react";
 import Container from "../../../components/Container";
-import { Backend_URL } from "../../../lib/Constants";
 import { useSession } from "next-auth/react";
 import MangaForm from "../../../components/MangaForm";
 import { useRouter } from "next/navigation";
@@ -18,7 +17,7 @@ export default function AddMangaPage() {
   const { data: session } = useSession();
 
   const register = async () => {
-    const res = await fetch(Backend_URL + "/manga", {
+    const res = await fetch(process.env.Backend_URL + "/manga", {
       method: "POST",
       body: JSON.stringify({
         name: data.current.name,

@@ -1,5 +1,4 @@
 "use client";
-import { Backend_URL } from "../../../../lib/Constants";
 import Container from "../../../../components/Container";
 import MangaForm from "../../../../components/MangaForm";
 import { useEffect, useRef, useState } from "react";
@@ -20,7 +19,7 @@ export default function EditMangaPage(props: Props) {
   const [manga, setManga] = useState<Manga>();
 
   useEffect(() => {
-    fetch(Backend_URL + `/manga/${props.params.id}`)
+    fetch(process.env.Backend_URL + `/manga/${props.params.id}`)
       .then((response) => response.json())
       .then((data) => {
         setManga(data);
@@ -28,7 +27,7 @@ export default function EditMangaPage(props: Props) {
   }, []);
 
   const editManga = async () => {
-    const res = await fetch(Backend_URL + `/manga/${props.params.id}`, {
+    const res = await fetch(process.env.Backend_URL + `/manga/${props.params.id}`, {
       method: "PUT",
       body: JSON.stringify({
         name: data.current.name == "" ? manga?.name : data.current.name,
