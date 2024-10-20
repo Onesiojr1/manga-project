@@ -1,10 +1,9 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import "./globals.css";
-import Providers from "@/components/Providers";
+import Providers from "../components/Providers";
 
 export const metadata = {
-  title: "Manga Site",
+  title: "MangaZone",
   description: "Um site para salvar seu manga!",
 };
 

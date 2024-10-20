@@ -9,7 +9,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full border-b border-transparent-white backdrop-blur-[12px]">
       <Container className="flex h-20">
         <Link className="flex items-center text-3xl" href="/">
-          <Logo color="#fff" className="w-16 h-16 mr-4 text-white" />Home
+          <Logo color="#fff" className="w-16 h-16 mr-4 text-white" /><span className="text-white font-extrabold">MangaZone</ span>
         </Link>
         <SignInButton />
       </Container>

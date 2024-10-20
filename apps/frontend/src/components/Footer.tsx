@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-transparent-white py-14 mt-20">
       <Container className="flex justify-between">
-        <div><Logo color="#fff" className="w-16 h-16 mr-4 text-white"/> Maga Site</div>
+        <div className="flex flex-col justify-center items-center"><Logo color="#fff" className="w-16 h-16 text-white"/>MangaZone</div>
         <div className="flex gap-10 text-gray-400">
           <IconBrandTwitterFilled />
           <IconBrandGithubFilled />
