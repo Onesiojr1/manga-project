@@ -48,7 +48,7 @@ export default function MangaPage(props: Props) {
         setManga(data);
         setChapter(data.chapter);
       });
-  }, []);
+  }, [props.params.id]);
 
   return (
     <div>

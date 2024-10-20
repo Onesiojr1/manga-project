@@ -24,7 +24,7 @@ export default function EditMangaPage(props: Props) {
       .then((data) => {
         setManga(data);
       });
-  }, []);
+  }, [props.params.id]);
 
   const editManga = async () => {
     const res = await fetch(process.env.Backend_URL + `/manga/${props.params.id}`, {

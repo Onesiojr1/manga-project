@@ -1,6 +1,7 @@
 import LinkButton from "./LinkButton";
 import Container from "./Container";
 import Hero, { HeroSubtitle, HeroTitle } from "./Hero";
+import Image from "next/image";
 
 export default function NoLoggedHome() {
   return (
@@ -11,7 +12,7 @@ export default function NoLoggedHome() {
             <HeroTitle>A melhor forma de salvar<br /> o capitulo de seu manga favorito!</HeroTitle>
             <HeroSubtitle>Crie sua conta e comece agora!</HeroSubtitle>
             <LinkButton href="/signup" size={'large'}>Cadastrar</LinkButton>
-            <img src="img/hero.png" alt="Hero image" className="mt-20"/>
+            <Image src="img/hero.png" alt="Hero image" className="mt-20"/>
           </Hero>
         </Container>
       </main>

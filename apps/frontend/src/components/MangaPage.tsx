@@ -3,7 +3,7 @@ import { Manga } from "../lib/types";
 import Container from "./Container";
 import LinkButton from "./LinkButton";
 import MangaComponent from "./MangaComponent";
-import { authOptions } from "../app/api/auth/[...nextauth]/route";
+import { authOptions } from "../lib/auth";
 
 export default async function MangaPage() {
   const session = await getServerSession(authOptions);
