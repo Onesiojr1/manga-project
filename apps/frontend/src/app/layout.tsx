@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Providers from "../components/Providers";
+import "./globals.css";
+import Providers from "@/components/Providers";
 
 export const metadata = {
   title: "MangaZone",
