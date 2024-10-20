@@ -18,7 +18,7 @@ export default function RootLayout(props: Props) {
       <body className="h-full">
         <Providers>
           <Header />
-          {props.children}
+            {props.children}
           <Footer />
         </Providers>
       </body>
